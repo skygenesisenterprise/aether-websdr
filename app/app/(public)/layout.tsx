@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import { Header } from "./_components/Header";
-import { Sidebar } from "./_components/Sidebar";
-import { ProtectedRoute } from "@/components/ProtectedRoute";
+import { Providers } from "@/context/Providers";
+import { DashboardLayout } from "@/components/DashboardLayout";
 
 export const metadata: Metadata = {
   title: "Aether Mail | The Ultimate Email Client for Aether Office",
@@ -9,20 +8,18 @@ export const metadata: Metadata = {
     "Aether Mail - A lightweight, open-source email client built for privacy, speed, and seamless integration within the Aether Office ecosystem.",
 };
 
-export default function PlatformLayout({
+export default function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
   return (
-    <ProtectedRoute>
-      <div className="flex flex-col h-screen">
-        <Header />
-        <div className="flex flex-1 overflow-hidden">
-          <Sidebar />
-          <div className="flex-1 overflow-auto">{children}</div>
-        </div>
-      </div>
-    </ProtectedRoute>
+    <html lang="fr" suppressHydrationWarning>
+      <body className="font-sans antialiased">
+        <Providers>
+          <DashboardLayout>{children}</DashboardLayout>
+        </Providers>
+      </body>
+    </html>
   );
 }

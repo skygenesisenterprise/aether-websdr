@@ -2,8 +2,8 @@ import type { Metadata } from "next";
 
 export const metadata: Metadata = {
   title: {
-    template: "%s - Aether Mail",
-    default: "Aether Mail",
+    template: "%s - Aether WebSDR",
+    default: "Aether WebSDR",
   },
   description:
     "Aether Mail - A lightweight, open-source email client built for privacy, speed, and seamless integration within the Aether Office ecosystem.",
